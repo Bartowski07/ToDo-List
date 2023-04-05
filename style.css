@@ -23,6 +23,7 @@ nav {
   display: flex;
   justify-content: space-between;
   width: 15rem;
+  align-items: center;
 }
 
 .nav-left a {
@@ -60,10 +61,31 @@ nav {
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
   background-color: #404040;
   color: white;
   width: 100%;
-  padding: 0.7rem;
+  padding: 2em;
 }
+
+.calendar {
+display: flex;
+justify-content: center;
+}
+
+.calendar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 65rem;
+}
+
+.legal {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid white;
+
+}
+
 
 /* End styling for Nav & Footer */

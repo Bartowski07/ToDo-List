@@ -17,6 +17,8 @@ nav {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   width: 100%;
   z-index: 1;
+  border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
 }
 
 .nav-left {
@@ -40,7 +42,7 @@ nav {
   text-align: center;
   font-size: 1.5rem;
   margin: 0;
-  padding-right: 9rem;
+  padding-right: 16rem;
 }
 
 /* .nav-right {
@@ -66,26 +68,68 @@ footer {
   background-color: #404040;
   color: white;
   width: 100%;
-  padding: 2em;
+  padding: 0.5rem;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .calendar {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .calendar-wrapper {
   display: flex;
   justify-content: space-between;
-  width: 65rem;
+  width: 63%;
+}
+
+.calendar-wrapper span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar-wrapper img {
+  margin-bottom: 0.2rem;
+}
+
+.calendar-wrapper a {
+  text-decoration: none;
+  color: white;
+}
+
+.calendar-wrapper a:hover {
+  transition: all ease 0.3s;
+  color: black;
 }
 
 .legal {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   border-top: 1px solid white;
-
+  padding-top: 0.5rem;
 }
 
+.legal-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.legal-wrapper a {
+  text-decoration: none;
+  color: white;
+}
+
+.legal-wrapper a:hover {
+  transition: all ease 0.3s;
+  color: black;
+}
+
+.legal span {
+  align-self: center;
+}
 
 /* End styling for Nav & Footer */

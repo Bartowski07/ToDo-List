@@ -24,8 +24,21 @@ function taskEdit (e) {
     const testTextGet = testItem.innerHTML;
     input.type = "text";
     input.value = testTextGet;
-    testItem.parentNode.replaceChild(input, testTextGet);
+    testItem.parentNode.replaceChild(input, testItem);
     console.log(testTextGet);
+    document.addEventListener('keydown', function(event) {
+      if (event.code === 'Enter') {
+        const replacedText = input.value;
+        console.log(replacedText);
+        const editedTask = document.createElement("p");
+        editedTask.classList.add("listItemTxt item2");
+        editedTask.innerHTML = replacedText;
+        console.log(editedTask);
+        // input.parentNode.replaceChild()
+      }
+    });
 }
 console.log(listItemText);
 testItem.addEventListener("click", taskEdit);
+
+

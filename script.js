@@ -17,28 +17,41 @@ addButton.addEventListener("click", function () {
 
 
 /* Edit Function */
-const testItem = document.querySelector('.item2');
+const main = document.querySelector('main');
 const listItemText = document.querySelectorAll('.listItemTxt');
-function taskEdit (e) {
+function taskEdit (event) {
+  console.log(event);
+  if (event.target.nodeName !== "P") {
+    return;
+  } 
+    const selectedParagraph = event.target;
+    console.log(selectedParagraph);
     const input = document.createElement("input");
-    const testTextGet = testItem.innerHTML;
+    const testTextGet = selectedParagraph.innerHTML;
     input.type = "text";
     input.value = testTextGet;
-    testItem.parentNode.replaceChild(input, testItem);
+    selectedParagraph.parentNode.replaceChild(input, selectedParagraph);
     console.log(testTextGet);
     document.addEventListener('keydown', function(event) {
       if (event.code === 'Enter') {
         const replacedText = input.value;
         console.log(replacedText);
         const editedTask = document.createElement("p");
-        editedTask.classList.add("listItemTxt item2");
+        editedTask.classList.add("listItemTxt", "item1");
         editedTask.innerHTML = replacedText;
         console.log(editedTask);
-        // input.parentNode.replaceChild()
+        input.parentNode.replaceChild(editedTask, input);
       }
     });
 }
 console.log(listItemText);
-testItem.addEventListener("click", taskEdit);
+main.addEventListener("click", taskEdit);
 
+/*
+function Browser.addEventListener(method, callbackFunction) {
+  const event = new Event(method);
+  {method: click, target: whatEverWasClicked}
 
+  callbackFunction(event);
+}
+*/

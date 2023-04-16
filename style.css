@@ -290,3 +290,16 @@ footer {
 }
 
 /* End styling for Nav & Footer */
+
+
+.editInputBox {
+  border-radius: 0.5rem;
+  width: auto;
+  /* margin: 1rem; */
+  height: 4vh; 
+  text-align: center;
+  font-size: 1rem;
+  outline-color: var(--main-color);
+  border: hidden;
+  /* background-color: transparent; */
+}

@@ -95,3 +95,48 @@ for (let i = 0; i < tasks.length; i++) {
 ``;
 
 /////////////////ADD TASK & DELETE TASKS & LOCALSTORAGE END/////////////////
+
+/////// EDIT FUNCTION START ////////
+const main = document.querySelector('main');
+const listItemText = document.querySelectorAll('.listItemTxt');
+function taskEdit (event) {
+  console.log(event);
+  if (event.target.nodeName !== "P") {
+    return;
+  } 
+    const selectedParagraph = event.target;
+    console.log(selectedParagraph);
+    const input = document.createElement("input");
+    const testTextGet = selectedParagraph.innerHTML;
+    input.classList.add("editInputBox");
+    input.type = "text";
+    input.value = testTextGet;
+    console.log("Input field: " + input);
+    selectedParagraph.parentNode.replaceChild(input, selectedParagraph);
+    input.select();
+    console.log(testTextGet);
+    document.addEventListener('keydown', function(event) {
+      if (event.code === 'Enter') {
+        const replacedText = input.value;
+        console.log(replacedText);
+        const editedTask = document.createElement("p");
+        editedTask.classList.add("listItemTxt", "item1");
+        editedTask.innerHTML = replacedText;
+        console.log(editedTask);
+        input.parentNode.replaceChild(editedTask, input);
+      }
+    });
+}
+console.log(listItemText);
+main.addEventListener("click", taskEdit);
+
+/*
+function Browser.addEventListener(method, callbackFunction) {
+  const event = new Event(method);
+  {method: click, target: whatEverWasClicked}
+
+  callbackFunction(event);
+}
+*/
+
+/////// EDIT FUNCTION END ////////

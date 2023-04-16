@@ -16,7 +16,7 @@ addButton.addEventListener("click", function () {
 });
 
 
-/* Edit Function */
+/////// EDIT FUNCTION START ////////
 const main = document.querySelector('main');
 const listItemText = document.querySelectorAll('.listItemTxt');
 function taskEdit (event) {
@@ -28,9 +28,12 @@ function taskEdit (event) {
     console.log(selectedParagraph);
     const input = document.createElement("input");
     const testTextGet = selectedParagraph.innerHTML;
+    input.classList.add("editInputBox");
     input.type = "text";
     input.value = testTextGet;
+    console.log("Input field: " + input);
     selectedParagraph.parentNode.replaceChild(input, selectedParagraph);
+    input.select();
     console.log(testTextGet);
     document.addEventListener('keydown', function(event) {
       if (event.code === 'Enter') {
@@ -55,3 +58,5 @@ function Browser.addEventListener(method, callbackFunction) {
   callbackFunction(event);
 }
 */
+
+/////// EDIT FUNCTION END ////////

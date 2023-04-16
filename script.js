@@ -97,37 +97,55 @@ for (let i = 0; i < tasks.length; i++) {
 /////////////////ADD TASK & DELETE TASKS & LOCALSTORAGE END/////////////////
 
 /////// EDIT FUNCTION START ////////
-const main = document.querySelector('main');
-const listItemText = document.querySelectorAll('.listItemTxt');
-function taskEdit (event) {
+const main = document.querySelector("main");
+
+function taskEdit(event) {
   console.log(event);
+
   if (event.target.nodeName !== "P") {
     return;
-  } 
-    const selectedParagraph = event.target;
-    console.log(selectedParagraph);
-    const input = document.createElement("input");
-    const testTextGet = selectedParagraph.innerHTML;
-    input.classList.add("editInputBox");
-    input.type = "text";
-    input.value = testTextGet;
-    console.log("Input field: " + input);
-    selectedParagraph.parentNode.replaceChild(input, selectedParagraph);
-    input.select();
-    console.log(testTextGet);
-    document.addEventListener('keydown', function(event) {
-      if (event.code === 'Enter') {
-        const replacedText = input.value;
-        console.log(replacedText);
-        const editedTask = document.createElement("p");
-        editedTask.classList.add("listItemTxt", "item1");
-        editedTask.innerHTML = replacedText;
-        console.log(editedTask);
-        input.parentNode.replaceChild(editedTask, input);
-      }
-    });
+  }
+
+  const selectedParagraph = event.target;
+  console.log(selectedParagraph);
+
+  const input = document.createElement("input");
+  const testTextGet = selectedParagraph.innerHTML;
+  input.classList.add("editInputBox");
+  input.type = "text";
+  input.value = testTextGet;
+
+  console.log("Input field: " + input);
+  selectedParagraph.parentNode.replaceChild(input, selectedParagraph);
+  input.select();
+
+  console.log(testTextGet);
+
+  document.addEventListener("keydown", function (event) {
+    if (event.code === "Enter") {
+      const replacedText = input.value;
+      console.log(replacedText);
+
+      const editedTask = document.createElement("p");
+      editedTask.classList.add("listItemTxt", "item1");
+      editedTask.innerHTML = replacedText;
+      console.log(editedTask);
+
+      input.parentNode.replaceChild(editedTask, input);
+
+      const tasks = [];
+
+      const paragraphNodes = document.querySelectorAll('.listItemTxt');
+
+      paragraphNodes.forEach((paragraphNode) => {
+        tasks.push(paragraphNode.innerHTML);
+      });
+
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  });
 }
-console.log(listItemText);
+
 main.addEventListener("click", taskEdit);
 
 /*
@@ -140,3 +158,22 @@ function Browser.addEventListener(method, callbackFunction) {
 */
 
 /////// EDIT FUNCTION END ////////
+
+////// MARKED DONE FUNCTION START //////
+// main.addEventListener("click", markDone);
+
+const checkboxes = document.querySelectorAll("main input[type='checkbox']");
+
+checkboxes.forEach((checkbox) => {
+  checkbox.addEventListener("change", () => {
+    const label = checkbox.nextElementSibling;
+
+    if (checkbox.checked) {
+      label.style.textDecoration = "line-through";
+      label.style.color = "#5e5e5e";
+    } else {
+      label.style.textDecoration = "none";
+      label.style.color = "black";
+    }
+  });
+});

@@ -111,7 +111,7 @@ input[type="checkbox"] {
 .inputSection {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   min-height: 10vh;
   /* width: 50vw; */
   background-color: var(--main-color);
@@ -130,9 +130,9 @@ input[type="checkbox"] {
 
 .taskCreator input {
   border-radius: 0.5rem;
-  width: 15vw;
+  width: 20vw;
   margin: 1rem;
-  height: 5vh;
+  height: 2rem;
   text-align: center;
   outline-color: var(--main-color);
   border: hidden;
@@ -296,7 +296,7 @@ footer {
   border-radius: 0.5rem;
   width: auto;
   /* margin: 1rem; */
-  height: 4vh; 
+  height: 2rem; 
   text-align: center;
   font-size: 1rem;
   outline-color: var(--main-color);
